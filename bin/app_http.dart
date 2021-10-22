@@ -1,4 +1,5 @@
 import 'dart:convert' as convert;
+import 'package:app_http/classes/request_data.dart';
 import 'package:http/http.dart' as http;
 
 void main(List<String> arguments) {
@@ -8,5 +9,8 @@ void main(List<String> arguments) {
     for (var i = 0; i <= body.length-1; i++) {
       print('${body['data'][i]['email']}');
     }
+
+    final resp = welcomeFromJson(res.body);
+    print('\nTotal de páginas del JSON usando quickType: ${resp.total}');
   });
 }
